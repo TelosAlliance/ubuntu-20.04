@@ -8,6 +8,9 @@ all: image
 image:
 	docker build $(ARGS) -t $(IMAGE):$(TAG) .
 
+lint:
+	docker run --rm -i hadolint/hadolint < Dockerfile
+
 run:
 	docker run $(ARGS) \
 		--hostname $(IMAGE) \
