@@ -56,6 +56,7 @@ RUN dpkg --add-architecture i386 \
     golang \
     gosu \
     gzip \
+    kmod \
     libasound2-dev \
     libavahi-compat-libdnssd-dev \
     libboost-all-dev \
@@ -63,6 +64,7 @@ RUN dpkg --add-architecture i386 \
     libboost-dev:i386 \
     libboost-program-options-dev:i386 \
     libc6-dev \
+    libsndfile1-dev \
     libssl-dev \
     libtool \
     libwebsocketpp-dev \
