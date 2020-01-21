@@ -9,7 +9,7 @@ It is intended to serve as build environment for many of our projects.
 - Build Systems: `autotools`, `cmake`, `make`, `scons`
 - Compilers: `g++-multilib`, `gcc-multilib`, `java`, `golang`
 - Scripting Languages: `nodejs`/`npm`/`yarn`/`pnmp`, `perl`, `python2`, `python3`
-- Debug / Analysis: `gdb`, `shellcheck`
+- Debug / Analysis: `gdb`, `shellcheck`, `valgrind`
 
 ## Prequisites
 

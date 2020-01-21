@@ -86,6 +86,7 @@ RUN dpkg --add-architecture i386 \
     tar \
     unzip \
     uuid-dev \
+    valgrind \
     vim \
     zip \
     zlib1g-dev \
