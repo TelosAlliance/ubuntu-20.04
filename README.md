@@ -1,14 +1,14 @@
-# Ubuntu 18.04 LTS build container
+# Ubuntu 20.04 LTS build container
 
-This container is based on Ubuntu 18.04, but contains many additional packages for software development, some of which are not part of the official repositories.
+This container is based on Ubuntu 20.04, but contains many additional packages for software development, some of which are not part of the official repositories.
 It is intended to serve as build environment for many of our projects.
 
 ## Tools
 
-- Version Control: `git`, `svn`
-- Build Systems: `autotools`, `cmake`, `make`, `scons`
-- Compilers: `g++-multilib`, `gcc-multilib`, `java`, `golang`
-- Scripting Languages: `nodejs`/`npm`/`yarn`/`pnmp`, `perl`, `python2`, `python3`
+- Version Control: `git`
+- Build Systems: `autotools`, `cmake`, `make`
+- Compilers: `g++`, `gcc`, `golang`
+- Scripting Languages: `nodejs`/`npm`/`yarn`/`pnmp`, `perl`, `python`
 - Debug / Analysis: `gdb`, `shellcheck`, `valgrind`
 
 ## Prequisites
@@ -36,7 +36,7 @@ It can be configured using the following environment variables, all of which are
 To run a CI job using this image, add the following to your `.gitlab-ci.yml` file under the target job:
 
 ```yaml
-image: telosalliance/ubuntu-18.04:latest
+image: telosalliance/ubuntu-20.04:latest
 tags:
  - docker
 ```
@@ -59,7 +59,7 @@ docker run -it \
     --env LINUX_GID="$(id -g)" \
     --env LINUX_DIR="$PWD" \
     --mount "src=$HOME,target=$HOME,type=bind" \
-    telosalliance/ubuntu-18.04:latest "$@"
+    telosalliance/ubuntu-20.04:latest "$@"
 ```
 
 ### From Makefiles
@@ -76,7 +76,7 @@ docker-%:
 		--env LINUX_GID=$(shell id -g) \
 		--env LINUX_DIR="$(PWD)" \
 		--mount "src=$(HOME),target=$(HOME),type=bind" \
-		telosalliance/ubuntu-18.04:latest \
+		telosalliance/ubuntu-20.04:latest \
 		make $(@:docker-%=%)
 ```
 

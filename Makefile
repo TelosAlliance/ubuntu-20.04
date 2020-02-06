@@ -1,4 +1,4 @@
-IMAGE := telosalliance/ubuntu-18.04
+IMAGE := telosalliance/ubuntu-20.04
 TAG   ?= latest
 
 .PHONY: all image run

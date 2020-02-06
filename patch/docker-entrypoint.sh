@@ -1,7 +1,7 @@
 #!/bin/sh
 # Usage: docker-entrypoint.sh [cmd [arg0 [arg1 ...]]]
 
-echo ">>>>> Entering Ubuntu 18.04 development container..."
+echo ">>>>> Entering Ubuntu 20.04 development container..."
 
 # Exit on failure
 set -e
@@ -25,4 +25,4 @@ cd "$dir"
 # Run cmd as new user
 gosu "$user" "$@"
 
-echo "<<<<< Leaving Ubuntu 18.04 development container..."
+echo "<<<<< Leaving Ubuntu 20.04 development container..."
