@@ -37,6 +37,7 @@ RUN dpkg --add-architecture i386 \
     automake \
     bc \
     cpio \
+    cppcheck \
     device-tree-compiler \
     elfutils \
     file \
