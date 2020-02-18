@@ -1,7 +1,7 @@
 IMAGE := telosalliance/ubuntu-20.04
 TAG   ?= latest
 
-.PHONY: all image run
+.PHONY: all image lint run
 
 all: image
 

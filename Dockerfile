@@ -27,7 +27,6 @@ RUN dpkg --add-architecture i386 \
   # Install nodejs/npm
   #&& apt-get update \
   #&& apt-get install -y --no-install-recommends \
-  #  cmake \
   #  nodejs \
   # Install other javascript package managers
   #&& npm install -g yarn pnpm \
@@ -36,6 +35,7 @@ RUN dpkg --add-architecture i386 \
     autoconf \
     automake \
     bc \
+    cmake \
     cpio \
     cppcheck \
     device-tree-compiler \
