@@ -55,6 +55,7 @@ RUN dpkg --add-architecture i386 \
     libssl-dev \
     libtool \
     libwebsocketpp-dev \
+    libwebsockets-dev \
     locales-all \
     lzop \
     ncurses-dev \
