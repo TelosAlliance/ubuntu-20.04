@@ -3,6 +3,8 @@
 This container is based on Ubuntu 20.04, but contains many additional packages for software development, some of which are not part of the official repositories.
 It is intended to serve as build environment for many of our projects.
 
+DockerHub link: https://hub.docker.com/r/telosalliance/ubuntu-20.04
+
 ## Tools
 
 - Version Control: `git`
@@ -52,7 +54,7 @@ This shell script will launch the container and execute shell or any other comma
 
 # NOTE: Requires $PWD to be under $HOME
 
-docker run -it \
+docker run --rm -it \
     --env LINUX_USER="$(id -un)" \
     --env LINUX_UID="$(id -u)" \
     --env LINUX_GROUP="$(id -gn)" \
@@ -69,7 +71,7 @@ You can use this container to execute any target by adding these lines to your `
 ```makefile
 # Run any target by prefixing it with `docker-`
 docker-%:
-	docker run \
+	docker run --rm \
 		--env LINUX_USER=$(shell id -un) \
 		--env LINUX_UID=$(shell id -u) \
 		--env LINUX_GROUP=$(shell id -gn) \
