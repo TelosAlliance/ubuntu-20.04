@@ -72,6 +72,7 @@ RUN apt-get update \
     uuid-dev \
     valgrind \
     vim \
+    wget \
     zip \
     zlib1g-dev \
   && apt-get clean \
