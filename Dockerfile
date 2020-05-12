@@ -57,6 +57,7 @@ RUN apt-get update \
     libasound2-dev \
     libavahi-compat-libdnssd-dev \
     libboost-all-dev \
+    libncurses5-dev \
     libsndfile1-dev \
     libssl-dev \
     libtool \
