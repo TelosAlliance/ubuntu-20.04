@@ -6,6 +6,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ America/New_York
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
+ENV GOROOT /usr/local/go
+ENV GOPATH $HOME/work/
+ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 
 # KEEP PACKAGES SORTED ALPHABETICALY
 # Do everything in one RUN command
@@ -20,6 +23,7 @@ RUN apt-get update \
     python3 \
     python3-pip \
     software-properties-common \
+    wget \
   # Install AWS cli
   && pip3 install awscli \
   # Use kitware's CMake repository for up-to-date version
@@ -36,6 +40,11 @@ RUN apt-get update \
     nodejs \
   # Install other javascript package managers
   && npm install -g yarn pnpm \
+  # Install newer version of Go than is included with Ubuntu 20.04
+  && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz \
+  && tar xvf go1.14.9.linux-amd64.tar.gz \
+  && mv go /usr/local/ \
+  && rm -f go* \
   # Install everything else
   && apt-get install -y --no-install-recommends \
     autoconf \
@@ -51,7 +60,6 @@ RUN apt-get update \
     gdb \
     gettext \
     git \
-    golang \
     gosu \
     kmod \
     libasound2-dev \
@@ -73,7 +81,6 @@ RUN apt-get update \
     uuid-dev \
     valgrind \
     vim \
-    wget \
     zip \
     zlib1g-dev \
   && apt-get clean \
