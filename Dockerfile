@@ -42,6 +42,18 @@ RUN apt-get update \
   && npm install -g yarn pnpm \
   # Install newer version of Go than is included with Ubuntu 20.04
   && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz -O - | tar -xz -C /usr/local/ \
+  # Install gstreamer
+  && apt-get install -y --no-install-recommends \
+    gstreamer1.0-nice \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-tools \
+    libgstreamer1.0-dev \
+    libglib2.0-dev \
+    libgstreamer-plugins-bad1.0-dev \
+    libjson-glib-dev \
+    libsoup2.4-dev \
   # Install everything else
   && apt-get install -y --no-install-recommends \
     autoconf \
