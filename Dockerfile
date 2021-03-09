@@ -31,7 +31,7 @@ RUN apt-get update \
   #&& curl -sL https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - \
   #&& apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
   # Use NodeSource's NodeJS 12.x repository
-  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_15.x | bash - \
   # Install nvm binary
   && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
   # Install nodejs/npm
