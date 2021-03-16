@@ -30,7 +30,7 @@ RUN apt-get update \
   # NOTE: Probably don't need this in 20.04, stick with Ubuntu's version for now
   #&& curl -sL https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - \
   #&& apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
-  # Use NodeSource's NodeJS 12.x repository
+  # Use NodeSource's NodeJS 15.x repository
   && curl -sL https://deb.nodesource.com/setup_15.x | bash - \
   # Install nvm binary
   && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
@@ -42,6 +42,10 @@ RUN apt-get update \
   && npm install -g yarn pnpm \
   # Install newer version of Go than is included with Ubuntu 20.04
   && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz -O - | tar -xz -C /usr/local/ \
+  # Install Rust, with MUSL libc toolchain
+  && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+  && rustup target install x86_64-unknown-linux-musl \
+  && apt-get install -y musl-tools \
   # Install gstreamer
   && apt-get install -y --no-install-recommends \
     gstreamer1.0-nice \
