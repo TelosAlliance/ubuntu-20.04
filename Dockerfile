@@ -44,6 +44,7 @@ RUN apt-get update \
   && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz -O - | tar -xz -C /usr/local/ \
   # Install Rust, with MUSL libc toolchain
   && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+  && . $HOME/.cargo/env \
   && rustup target install x86_64-unknown-linux-musl \
   && apt-get install -y musl-tools \
   # Install gstreamer
