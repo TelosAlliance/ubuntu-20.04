@@ -91,6 +91,7 @@ RUN apt-get update \
     ncurses-dev \
     rsync \
     shellcheck \
+    skalibs-dev \
     swig \
     unzip \
     uuid-dev \
