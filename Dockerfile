@@ -6,9 +6,18 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ America/New_York
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
-ENV GOROOT /usr/local/go
+
+# Golang env
+ENV GOROOT /opt/go
 ENV GOPATH $HOME/work/
-ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
+
+# Rust env
+ENV RUST_HOME /opt/rust
+ENV CARGO_HOME $RUST_HOME
+ENV RUSTUP_HOME $RUST_HOME/.rustup
+
+# Set PATH to include custom bin directories
+ENV PATH $GOPATH/bin:$GOROOT/bin:$RUST_HOME/bin:$PATH
 
 # KEEP PACKAGES SORTED ALPHABETICALY
 # Do everything in one RUN command
@@ -41,10 +50,9 @@ RUN apt-get update \
   # Install other javascript package managers
   && npm install -g yarn pnpm \
   # Install newer version of Go than is included with Ubuntu 20.04
-  && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz -O - | tar -xz -C /usr/local/ \
+  && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz -O - | tar -xz -C /opt \
   # Install Rust, with MUSL libc toolchain
   && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
-  && . $HOME/.cargo/env \
   && rustup target install x86_64-unknown-linux-musl \
   && apt-get install -y musl-tools \
   # Install gstreamer
