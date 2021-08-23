@@ -36,11 +36,7 @@ RUN apt-get update \
     wget \
   # Install AWS cli
   && pip3 install awscli \
-  # Use kitware's CMake repository for up-to-date version
-  # NOTE: Probably don't need this in 20.04, stick with Ubuntu's version for now
-  #&& curl -sSf https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - \
-  #&& apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
-  # Use NodeSource's NodeJS 15.x repository
+  # Use NodeSource's NodeJS 16.x repository
   && curl -sSf https://deb.nodesource.com/setup_16.x | bash - \
   # Install nvm binary
   && curl -sSf https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
@@ -55,6 +51,7 @@ RUN apt-get update \
   # Install Rust, with MUSL libc toolchain
   && curl -sSf https://sh.rustup.rs | sh -s -- -y \
   && rustup target install x86_64-unknown-linux-musl \
+  && chmod 777 "$RUST_HOME" \
   && apt-get install -y musl-tools \
   # Install gstreamer
   && apt-get install -y --no-install-recommends \
