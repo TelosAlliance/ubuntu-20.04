@@ -50,10 +50,10 @@ RUN apt-get update \
   && curl -sSf https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz | tar -xz -C "$GO_PARENT_DIR" \
   # Install Rust, with MUSL libc toolchain
   && curl -sSf https://sh.rustup.rs | sh -s -- -y \
+  && curl -sSf https://just.systems/install.sh | bash -s -- --to "$RUST_HOME/bin" \
   && rustup target install x86_64-unknown-linux-musl \
   && chmod 777 "$RUST_HOME" \
   && apt-get install -y musl-tools \
-  && cargo install just \
   # Install gstreamer
   && apt-get install -y --no-install-recommends \
     gstreamer1.0-nice \
