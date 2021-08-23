@@ -53,6 +53,7 @@ RUN apt-get update \
   && rustup target install x86_64-unknown-linux-musl \
   && chmod 777 "$RUST_HOME" \
   && apt-get install -y musl-tools \
+  && cargo install just \
   # Install gstreamer
   && apt-get install -y --no-install-recommends \
     gstreamer1.0-nice \
