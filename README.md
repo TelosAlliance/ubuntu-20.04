@@ -9,7 +9,7 @@ DockerHub link: https://hub.docker.com/r/telosalliance/ubuntu-20.04
 
 - Version Control: `git`
 - Build Systems: `autotools`, `cmake`, `make`
-- Compilers: `g++`, `gcc`, `golang`
+- Compilers: `g++`, `gcc`, `golang`, `rustc`
 - Scripting Languages: `nodejs`/`npm`/`yarn`/`pnmp`, `perl`, `python`
 - Debug / Analysis: `cppcheck`, `gdb`, `shellcheck`, `valgrind`
 
@@ -43,26 +43,10 @@ tags:
  - docker
 ```
 
-### As a Shell Script
+### From a Shell Script
 
-This shell script will launch the container and execute shell or any other command from inside:
-
-```bash
-#!/bin/sh
-# Usage: run-docker [cmd [arg0 [arg1 ...]]]
-# Run any command inside our CI container
-
-# NOTE: Requires $PWD to be under $HOME
-
-docker run --rm -it \
-    --env LINUX_USER="$(id -un)" \
-    --env LINUX_UID="$(id -u)" \
-    --env LINUX_GROUP="$(id -gn)" \
-    --env LINUX_GID="$(id -g)" \
-    --env LINUX_DIR="$PWD" \
-    --mount "src=$HOME,target=$HOME,type=bind" \
-    telosalliance/ubuntu-20.04:latest "$@"
-```
+Using the `run-docker` shell script provided in this repository, you can use start the container using your existing username, group, and home directory.
+The script can be used to run a single command inside the container or start an interactive shell.
 
 ### From Makefiles
 
