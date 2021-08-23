@@ -8,7 +8,8 @@ ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
 # Golang env
-ENV GOROOT /opt/go
+ENV GO_PARENT_DIR /opt
+ENV GOROOT $GO_PARENT_DIR/go
 ENV GOPATH $HOME/work/
 
 # Rust env
@@ -37,12 +38,12 @@ RUN apt-get update \
   && pip3 install awscli \
   # Use kitware's CMake repository for up-to-date version
   # NOTE: Probably don't need this in 20.04, stick with Ubuntu's version for now
-  #&& curl -sL https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - \
+  #&& curl -sSf https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - \
   #&& apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main' \
   # Use NodeSource's NodeJS 15.x repository
-  && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+  && curl -sSf https://deb.nodesource.com/setup_16.x | bash - \
   # Install nvm binary
-  && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
+  && curl -sSf https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
   # Install nodejs/npm
   && apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -50,9 +51,9 @@ RUN apt-get update \
   # Install other javascript package managers
   && npm install -g yarn pnpm \
   # Install newer version of Go than is included with Ubuntu 20.04
-  && wget -c https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz -O - | tar -xz -C /opt \
+  && curl -sSf https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz | tar -xz -C "$GO_PARENT_DIR" \
   # Install Rust, with MUSL libc toolchain
-  && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+  && curl -sSf https://sh.rustup.rs | sh -s -- -y \
   && rustup target install x86_64-unknown-linux-musl \
   && apt-get install -y musl-tools \
   # Install gstreamer
