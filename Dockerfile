@@ -96,6 +96,7 @@ RUN apt-get update \
     locales-all \
     lzop \
     ncurses-dev \
+    pandoc \
     rsync \
     shellcheck \
     swig \
