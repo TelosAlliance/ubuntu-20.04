@@ -6,7 +6,7 @@ TAG   ?= latest
 all: image
 
 image:
-	docker build $(ARGS) -t $(IMAGE):$(TAG) .
+	DOCKER_BUILDKIT=1 docker build $(ARGS) -t $(IMAGE):$(TAG) .
 
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
