@@ -23,7 +23,8 @@ ENV PATH $GOPATH/bin:$GOROOT/bin:$RUST_HOME/bin:$PATH
 
 # KEEP PACKAGES SORTED ALPHABETICALY
 # Do everything in one RUN command
-RUN <<EOF
+RUN /bin/bash <<EOF
+set -euxo pipefail
 apt-get update
 # Install packages needed to set up third-party repositories
 apt-get install -y --no-install-recommends \
@@ -53,7 +54,7 @@ curl -sSf https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz | tar -xz -C "$GO
 # Install Rust, with MUSL libc toolchain
 curl -sSf https://sh.rustup.rs | sh -s -- -y
 curl -sSf https://just.systems/install.sh | bash -s -- --to "$RUST_HOME/bin"
-cargo install cargo-bundle-license
+cargo install cargo-bundle-licenses
 cargo install cargo-deny
 cargo install cargo-license
 rustup target install x86_64-unknown-linux-musl
