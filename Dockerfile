@@ -57,6 +57,8 @@ curl -sSf https://just.systems/install.sh | bash -s -- --to "$RUST_HOME/bin"
 cargo install cargo-bundle-licenses
 cargo install cargo-deny
 cargo install cargo-license
+cargo install cargo-lichking
+cargo install cargo-script
 rustup target install x86_64-unknown-linux-musl
 rm -rf "$RUST_HOME/registry" "$RUST_HOME/git"
 chmod 777 "$RUST_HOME"
