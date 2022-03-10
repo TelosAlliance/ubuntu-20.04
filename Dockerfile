@@ -39,6 +39,9 @@ apt-get install -y --no-install-recommends \
   wget
 # Install AWS cli
 pip3 install awscli
+# Use kitware's CMake repository for up-to-date version
+curl -sSf https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add -
+apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
 # Use NodeSource's NodeJS 16.x repository
 curl -sSf https://deb.nodesource.com/setup_16.x | bash -
 # Install nvm binary
