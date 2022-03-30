@@ -108,6 +108,7 @@ apt-get install -y --no-install-recommends \
   locales-all \
   lzop \
   ncurses-dev \
+  openssh-client \
   pandoc \
   rsync \
   shellcheck \
