@@ -36,6 +36,7 @@ apt-get install -y --no-install-recommends \
   python3 \
   python3-pip \
   software-properties-common \
+  time \
   wget
 # Install AWS cli
 pip3 install awscli
