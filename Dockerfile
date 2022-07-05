@@ -114,6 +114,7 @@ apt-get install -y --no-install-recommends \
   rsync \
   shellcheck \
   swig \
+  time \
   unzip \
   uuid-dev \
   valgrind \
