@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.3-labs
 # vim:syntax=dockerfile
-FROM ubuntu:focal-20210921
+FROM ubuntu:focal-20220826
 
 # Set this before `apt-get` so that it can be done non-interactively
 ENV DEBIAN_FRONTEND noninteractive
@@ -99,6 +99,7 @@ apt-get install -y --no-install-recommends \
   libasound2-dev \
   libavahi-compat-libdnssd-dev \
   libboost-all-dev \
+  libclang-dev \
   libcurl4-openssl-dev \
   libncurses5-dev \
   libsndfile1-dev \
