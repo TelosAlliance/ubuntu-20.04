@@ -19,4 +19,4 @@ run:
 		--env LINUX_GROUP=$(shell id -gn) \
 		--env LINUX_GID=$(shell id -g) \
 		--mount src=$(HOME),target=$(HOME),type=bind \
-		-ti $(IMAGE):$(TAG)
+		-ti --rm $(IMAGE):$(TAG)
