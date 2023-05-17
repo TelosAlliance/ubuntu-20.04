@@ -95,6 +95,7 @@ apt-get install -y --no-install-recommends \
   gettext \
   git \
   gosu \
+  jq \
   kmod \
   libasound2-dev \
   libavahi-compat-libdnssd-dev \
@@ -112,6 +113,7 @@ apt-get install -y --no-install-recommends \
   ncurses-dev \
   openssh-client \
   pandoc \
+  openssh-client \
   rsync \
   shellcheck \
   swig \
