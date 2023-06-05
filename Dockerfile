@@ -57,6 +57,7 @@ curl -sSf https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz | tar -xz -C "$GO
 # Install Rust, with MUSL libc toolchain
 curl -sSf https://sh.rustup.rs | sh -s -- -y
 curl -sSf https://just.systems/install.sh | bash -s -- --to "$RUST_HOME/bin"
+cargo install cargo-about
 cargo install cargo-bundle-licenses
 cargo install cargo-deny
 cargo install cargo-license
