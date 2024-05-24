@@ -63,6 +63,8 @@ cargo install cargo-deny
 cargo install cargo-license
 cargo install cargo-lichking
 cargo install cargo-script
+cargo install cargo-deb
+cargo install cargo-generate-rpm
 rustup target add x86_64-unknown-linux-musl
 rustup target add armv7-unknown-linux-gnueabihf
 rm -rf "$RUST_HOME/registry" "$RUST_HOME/git"
@@ -115,6 +117,7 @@ apt-get install -y --no-install-recommends \
   openssh-client \
   pandoc \
   openssh-client \
+  opus-tools \
   rsync \
   shellcheck \
   swig \
