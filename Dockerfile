@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.3-labs
 # vim:syntax=dockerfile
-FROM ubuntu:focal-20220826
+FROM ubuntu:focal-20240530
 
 # Set this before `apt-get` so that it can be done non-interactively
 ENV DEBIAN_FRONTEND noninteractive
