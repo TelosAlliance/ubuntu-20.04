@@ -98,6 +98,7 @@ apt-get install -y --no-install-recommends \
   gdb \
   gettext \
   git \
+  git-lfs \
   gosu \
   jq \
   kmod \
