@@ -104,6 +104,7 @@ apt-get install -y --no-install-recommends \
   libclang-dev \
   libcurl4-openssl-dev \
   libncurses5-dev \
+  libpcap-dev \
   libsndfile1-dev \
   libssl-dev \
   libtool \
